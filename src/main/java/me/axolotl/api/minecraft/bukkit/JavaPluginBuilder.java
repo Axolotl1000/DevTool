@@ -1,6 +1,10 @@
 package me.axolotl.api.minecraft.bukkit;
 
+import me.axolotl.api.exception.ChecksNotPassException;
+import me.axolotl.api.minecraft.DependPlugin;
 import me.axolotl.api.minecraft.bukkit.util.CommandRunnable;
+import me.axolotl.api.tool.Checks;
+import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,6 +41,28 @@ public abstract class JavaPluginBuilder extends JavaPlugin {
     public final void onEnable() {
         logger.info("Enabling Plugin: " + getPluginName());
         runOnEnable();
+
+        boolean anyForceNInstall = false;
+
+        for (DependPlugin dp : getDependencies()){
+            try {
+                Checks.IsNull(getServer().getPluginManager().getPlugin(dp.getPluginID()), dp.getPluginID());
+            } catch (ChecksNotPassException ignored) {
+                if (dp.isForce()) {
+                    logger.severe( dp.getPluginID() + " is a required plug-in, but it is not installed.");
+                    anyForceNInstall = true;
+                } else {
+                    logger.warning(dp.getPluginID() + " is not installed, but is not necessary.");
+                }
+            }
+        }
+
+        if(anyForceNInstall) {
+            logger.severe("The necessary plugin is not installed, so the plugin cannot be enabled");
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
+        }
+
         for (CommandRunnable cmd : getCommands()) {
             PluginCommand pc = getCommand(cmd.getCommandName());
             if (pc == null) {
@@ -83,6 +109,13 @@ public abstract class JavaPluginBuilder extends JavaPlugin {
      * @return a list of event listeners
      */
     public abstract @NotNull List<Listener> getEvents();
+
+    /**
+     * Retrieves a list of dependencies with the plugin.
+     *
+     * @return a list of depend on Plugins
+     */
+    public abstract @NotNull List<DependPlugin> getDependencies();
 
     /**
      * Runs custom tasks when the plugin is being loaded.
