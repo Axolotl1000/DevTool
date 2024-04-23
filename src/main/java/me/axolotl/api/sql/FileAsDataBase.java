@@ -245,7 +245,7 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     private void isConnected() {
-        if (List.of(CONNECTED, PROCESSING).contains(this.status)) {
+        if (!List.of(CONNECTED, PROCESSING).contains(this.status)) {
             setStatus(5);
             throw new RuntimeException("Did not connect to database", new NonInConnectedException());
         }
