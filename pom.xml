@@ -6,7 +6,7 @@
 
     <groupId>me.axolotl</groupId>
     <artifactId>DevTool</artifactId>
-    <version>1.4</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>DevTool</name>
