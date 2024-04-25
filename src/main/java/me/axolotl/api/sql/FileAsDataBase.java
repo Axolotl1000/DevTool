@@ -217,7 +217,8 @@ public final class FileAsDataBase implements BaseDB {
     public synchronized ResultSet runSearch(String command) throws SQLException {
         isConnected();
         setStatus(2);
-        try (ResultSet rs = statement.executeQuery(command)) {
+        try {
+            ResultSet rs = statement.executeQuery(command);
             setStatus(1);
             return rs;
         } catch (SQLException ex) {
