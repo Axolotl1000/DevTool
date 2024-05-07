@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The Versions class provides constants representing various API versions.
+ * Versions類提供了代表各種API版本的常量。
  *
  * @since 2024-02-08
  */
@@ -14,7 +14,7 @@ public final class Versions {
     }
 
     /**
-     * The API versions for this application.
+     * 此應用程序的API版本。
      */
     public static final Map<String, String> dependencies = dependencies();
 
