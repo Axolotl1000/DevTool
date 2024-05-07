@@ -1,45 +1,44 @@
 package me.axolotl.api.exception;
 
 /**
- * The MethodNotAllowed exception is thrown when an attempt is made to invoke a method that is not allowed.
+ * MethodNotAllowed異常在試圖調用不允許的方法時拋出。
  *
  * @since 2024-02-08
  */
 public final class MethodNotAllowed extends RuntimeException {
 
     /**
-     * Constructs a new MethodNotAllowed exception with no detail message.
+     * 構造一個新的MethodNotAllowed異常，沒有詳細消息。
      */
     public MethodNotAllowed() {
         super();
     }
 
     /**
-     * Constructs a new MethodNotAllowed exception with the specified detail message.
+     * 構造一個新的MethodNotAllowed異常，帶有指定的詳細消息。
      *
-     * @param message The detail message.
+     * @param message 詳細消息。
      */
     public MethodNotAllowed(String message) {
         super(message);
     }
 
     /**
-     * Constructs a new MethodNotAllowed exception with the specified cause.
+     * 構造一個新的MethodNotAllowed異常，帶有指定的原因。
      *
-     * @param cause The cause of the exception.
+     * @param cause 異常的原因。
      */
     public MethodNotAllowed(Throwable cause) {
         super(cause);
     }
 
     /**
-     * Constructs a new MethodNotAllowed exception with the specified detail message and cause.
+     * 構造一個新的MethodNotAllowed異常，帶有指定的詳細消息和原因。
      *
-     * @param message The detail message.
-     * @param cause   The cause of the exception.
+     * @param message 詳細消息。
+     * @param cause   異常的原因。
      */
     public MethodNotAllowed(String message, Throwable cause) {
         super(message, cause);
     }
 }
-

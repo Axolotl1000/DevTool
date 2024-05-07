@@ -6,29 +6,28 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
- * The Serialization interface provides methods for serialization and deserialization of objects.
+ * Serialization接口提供了對象的序列化和反序列化方法。
  *
- * @param <UnSerializationType> the type of object to be deserialized
+ * @param <UnSerializationType> 要反序列化的對象的類型
  * @see java.io.Serializable
  * @since 2024-04-13
  */
 public interface Serialization<UnSerializationType> extends Serializable {
 
     /**
-     * Serializes the object into a map of key-value pairs.
+     * 將對象序列化為鍵值對的映射。
      *
-     * @return a map containing the serialized data
+     * @return 包含序列化數據的映射
      */
     @NotNull
     Map<String, Object> serialization();
 
     /**
-     * Deserializes the object from the provided map of key-value pairs.
+     * 從提供的鍵值對映射中反序列化對象。
      *
-     * @param serializedData the map containing the serialized data
-     * @return the deserialized object
+     * @param serializedData 包含序列化數據的映射
+     * @return 反序列化後的對象
      */
     @NotNull
     UnSerializationType unSerialization(Map<String, Object> serializedData);
 }
-

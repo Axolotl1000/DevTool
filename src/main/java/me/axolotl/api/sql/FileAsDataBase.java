@@ -15,7 +15,7 @@ import static me.axolotl.api.sql.enumerate.SQLStatus.CONNECTED;
 import static me.axolotl.api.sql.enumerate.SQLStatus.PROCESSING;
 
 /**
- * The FileAsDataBase class provides functionality to interact with a SQLite database stored in a file.
+ * FileAsDataBase類提供了與存儲在文件中的SQLite數據庫交互的功能。
  *
  * @since 2024-02-22
  */
@@ -29,9 +29,9 @@ public final class FileAsDataBase implements BaseDB {
     private Statement statement;
 
     /**
-     * Constructs a new FileAsDataBase instance with the specified file path.
+     * 使用指定的文件路徑構造一個新的FileAsDataBase實例。
      *
-     * @param path the file path of the SQLite database
+     * @param path SQLite數據庫的文件路徑
      */
     public FileAsDataBase(String path) {
         this.pathS = path;
@@ -44,18 +44,18 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     /**
-     * Gets the current status of the SQL connection.
+     * 獲取當前SQL連接的狀態。
      *
-     * @return the current SQL status
+     * @return 當前SQL狀態
      */
     public SQLStatus getStatus() {
         return status;
     }
 
     /**
-     * Connects to the SQLite database.
+     * 連接到SQLite數據庫。
      *
-     * @throws RuntimeException if unable to connect to the database
+     * @throws RuntimeException 如果無法連接到數據庫
      */
     public synchronized void connect() {
         setStatus(0);
@@ -71,9 +71,9 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     /**
-     * Disconnects from the SQLite database.
+     * 斷開與SQLite數據庫的連接。
      *
-     * @throws RuntimeException if unable to disconnect from the database
+     * @throws RuntimeException 如果無法從數據庫斷開連接
      */
     public synchronized void disconnect() {
         setStatus(3);
@@ -92,11 +92,11 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     /**
-     * Creates a new table in the database with the specified table ID and data schema.
+     * 在數據庫中創建一個具有指定表ID和數據模式的新表。
      *
-     * @param tableId the ID of the table to be created
-     * @param data    the data schema for the table
-     * @throws RuntimeException if an error occurs during the table creation process
+     * @param tableId 要創建的表的ID
+     * @param data    表的數據模式
+     * @throws RuntimeException 在表創建過程中發生錯誤時
      */
     public synchronized void createTable(String tableId, TableUnit... data) {
         isConnected();
@@ -116,10 +116,10 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     /**
-     * Removes an existing table from the database with the specified table ID.
+     * 從數據庫中刪除具有指定表ID的現有表。
      *
-     * @param tableId the ID of the table to be removed
-     * @throws RuntimeException if an error occurs during the table removal process
+     * @param tableId 要刪除的表的ID
+     * @throws RuntimeException 在表刪除過程中發生錯誤時
      */
     public synchronized void removeTable(String tableId) {
         isConnected();
@@ -135,12 +135,12 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     /**
-     * Retrieves values from a specified table in the database.
+     * 從數據庫中檢索指定表中的值。
      *
-     * @param tableId the ID of the table
-     * @param filter  the filter condition for the query
-     * @return a ResultSet containing the queried values
-     * @throws RuntimeException if an error occurs during the query
+     * @param tableId 表的ID
+     * @param filter  查詢的過濾條件
+     * @return 包含查詢值的ResultSet
+     * @throws RuntimeException 在查詢過程中發生錯誤時
      */
     public synchronized ResultSet getTableValues(String tableId, String filter) {
         isConnected();
@@ -159,11 +159,11 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     /**
-     * Writes values to a specified table in the database.
+     * 將值寫入數據庫中指定的表。
      *
-     * @param tableId the ID of the table
-     * @param value   a Map containing the column names and corresponding values to be inserted
-     * @throws RuntimeException if an error occurs during the write operation
+     * @param tableId 表的ID
+     * @param value   包含列名和相應值的Map以進行插入
+     * @throws RuntimeException 在寫操作過程中發生錯誤時
      */
     public synchronized void writeToTable(String tableId, Map<String, Object> value) {
         isConnected();
@@ -185,11 +185,11 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     /**
-     * Deletes records from the specified table based on the provided filter.
+     * 基於提供的過濾器從指定表中刪除記錄。
      *
-     * @param tableId the ID of the table from which to delete records
-     * @param filter  the filter condition for deleting records (can be empty)
-     * @throws RuntimeException if an error occurs during the deletion process
+     * @param tableId 表的ID，從中刪除記錄
+     * @param filter  刪除記錄的過濾條件（可以為空）
+     * @throws RuntimeException 在刪除過程中發生錯誤時
      */
     public synchronized void deleteFromTable(String tableId, String filter) {
         isConnected();
@@ -208,11 +208,11 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     /**
-     * Executes a SQL command and returns the resulting ResultSet.
+     * 執行SQL命令並返回生成的ResultSet。
      *
-     * @param command the SQL command to be executed
-     * @return the ResultSet generated by the execution of the SQL command
-     * @throws SQLException if a database access error occurs or the SQL command fails to execute
+     * @param command 要執行的SQL命令
+     * @return 通過SQL命令執行生成的ResultSet
+     * @throws SQLException 如果發生數據庫訪問錯誤或SQL命令無法執行
      */
     public synchronized ResultSet runSearch(String command) throws SQLException {
         isConnected();
@@ -228,10 +228,10 @@ public final class FileAsDataBase implements BaseDB {
     }
 
     /**
-     * Executes a non-query SQL command on the database.
+     * 在數據庫上執行一個非查詢的SQL命令。
      *
-     * @param command the SQL command to be executed
-     * @throws SQLException if a database access error occurs or the SQL command fails to execute
+     * @param command 要執行的SQL命令
+     * @throws SQLException 如果發生數據庫訪問錯誤或SQL命令無法執行
      */
     public synchronized void runNormal(String command) throws SQLException {
         isConnected();
@@ -264,4 +264,3 @@ public final class FileAsDataBase implements BaseDB {
                 ")";
     }
 }
-

@@ -3,8 +3,8 @@ package me.axolotl.api.interfaces.annotations;
 import java.lang.annotation.*;
 
 /**
- * The NotUseButSave annotation is used to mark methods, fields, or types that are not intended for immediate use
- * but are kept for future reference or potential future use.
+ * NotUseButSave註釋用於標記不打算立即使用的方法、字段或類型，
+ * 但保留供將來參考或可能的將來使用。
  *
  * @since 2024-02-18
  */
@@ -14,9 +14,9 @@ import java.lang.annotation.*;
 public @interface NotUseButSave {
 
     /**
-     * Specifies the version or release in which the annotated element was introduced.
+     * 指定標註元素被引入的版本或發布版。
      *
-     * @return the version or release in which the annotated element was introduced
+     * @return 標註元素被引入的版本或發布版
      */
     String since() default "";
 

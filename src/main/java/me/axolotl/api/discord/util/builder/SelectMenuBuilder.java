@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * The SelectMenuBuilder class provides a template for building select menus with options.
+ * SelectMenuBuilder類提供了一個用於構建帶有選項的選擇選單的模板。
  *
  * @since 2024-02-22
  */
@@ -23,43 +23,43 @@ public abstract class SelectMenuBuilder {
     private int maxValue;
 
     /**
-     * Constructs a new SelectMenuBuilder with the specified ID.
+     * 使用指定的ID構造一個新的SelectMenuBuilder。
      *
-     * @param id the ID of the select menu
+     * @param id 選擇選單的ID
      */
     public SelectMenuBuilder(String id) {
         this(id, null, false, 1, 1);
     }
 
     /**
-     * Constructs a new SelectMenuBuilder with the specified ID and options.
+     * 使用指定的ID和選項構造一個新的SelectMenuBuilder。
      *
-     * @param id      the ID of the select menu
-     * @param options the options of the select menu
+     * @param id      選擇選單的ID
+     * @param options 選擇選單的選項
      */
     public SelectMenuBuilder(String id, HashMap<String, String> options) {
         this(id, options, false, 1, 1);
     }
 
     /**
-     * Constructs a new SelectMenuBuilder with the specified ID, options, and disable status.
+     * 使用指定的ID、選項和禁用狀態構造一個新的SelectMenuBuilder。
      *
-     * @param id      the ID of the select menu
-     * @param options the options of the select menu
-     * @param disable the disable status of the select menu
+     * @param id      選擇選單的ID
+     * @param options 選擇選單的選項
+     * @param disable 選擇選單的禁用狀態
      */
     public SelectMenuBuilder(String id, HashMap<String, String> options, boolean disable) {
         this(id, options, disable, 1, 1);
     }
 
     /**
-     * Constructs a new SelectMenuBuilder with the specified ID, options, disable status, minimum value, and maximum value.
+     * 使用指定的ID、選項、禁用狀態、最小值和最大值構造一個新的SelectMenuBuilder。
      *
-     * @param id       the ID of the select menu
-     * @param options  the options of the select menu
-     * @param disable  the disable status of the select menu
-     * @param minValue the minimum value allowed for selection
-     * @param maxValue the maximum value allowed for selection
+     * @param id       選擇選單的ID
+     * @param options  選擇選單的選項
+     * @param disable  選擇選單的禁用狀態
+     * @param minValue 選擇選單的允許的最小值
+     * @param maxValue 選擇選單的允許的最大值
      */
     public SelectMenuBuilder(String id, HashMap<String, String> options, boolean disable, int minValue, int maxValue) {
         this.id = id;
@@ -70,50 +70,50 @@ public abstract class SelectMenuBuilder {
     }
 
     /**
-     * Gets the ID of the select menu.
+     * 獲取選擇選單的ID。
      *
-     * @return the ID of the select menu
+     * @return 選擇選單的ID
      */
     public String getId() {
         return id;
     }
 
     /**
-     * Enables the select menu.
+     * 啟用選擇選單。
      */
     public void asEnable() {
         this.disable = false;
     }
 
     /**
-     * Disables the select menu.
+     * 禁用選擇選單。
      */
     public void asDisable() {
         this.disable = true;
     }
 
     /**
-     * Sets the minimum value allowed for selection.
+     * 設置允許選擇的最小值。
      *
-     * @param minValue the minimum value allowed for selection
+     * @param minValue 允許選擇的最小值
      */
     public void setMinValue(int minValue) {
         this.minValue = minValue;
     }
 
     /**
-     * Sets the maximum value allowed for selection.
+     * 設置允許選擇的最大值。
      *
-     * @param maxValue the maximum value allowed for selection
+     * @param maxValue 允許選擇的最大值
      */
     public void setMaxValue(int maxValue) {
         this.maxValue = maxValue;
     }
 
     /**
-     * Gets the options of the select menu.
+     * 獲取選擇選單的選項。
      *
-     * @return a list of select options
+     * @return 選擇選單的選項列表
      */
     public List<SelectOption> getOptions() {
         List<SelectOption> options = new ArrayList<>();
@@ -124,19 +124,19 @@ public abstract class SelectMenuBuilder {
     }
 
     /**
-     * Gets the option by its ID.
+     * 根據ID獲取選項。
      *
-     * @param id the ID of the option
-     * @return the text of the option with the specified ID
+     * @param id 選項的ID
+     * @return 具有指定ID的選項的文本
      */
     public String getOptionById(String id) {
         return this.options.getOrDefault(id, "");
     }
 
     /**
-     * Gets the SelectMenu object representing the select menu.
+     * 獲取表示選擇選單的SelectMenu對象。
      *
-     * @return the SelectMenu object representing the select menu
+     * @return 表示選擇選單的SelectMenu對象
      */
     public StringSelectMenu getMenu() {
         List<SelectOption> options = new ArrayList<>();
@@ -152,11 +152,10 @@ public abstract class SelectMenuBuilder {
     }
 
     /**
-     * Specifies the action to be performed when an option is selected from the select menu.
+     * 指定當從選擇選單中選擇一個選項時要執行的操作。
      *
-     * @param event the event representing the selection of an option
+     * @param event 表示選擇選項的事件
      */
     public abstract void onSelected(StringSelectInteractionEvent event);
 
 }
-

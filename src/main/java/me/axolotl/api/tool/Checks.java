@@ -6,18 +6,18 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * The Checks class provides utility methods for performing various checks on objects.
+ * Checks類別提供了執行對象的各種檢查的實用方法。
  *
  * @since 2024-02-18
  */
 public final class Checks {
 
     /**
-     * Ensures that the specified object is not null.
+     * 確保指定的對象不為null。
      *
-     * @param o    the object to check for nullity
-     * @param name the name of the object being checked
-     * @throws ChecksNotPassException if the object is null
+     * @param o    要檢查null性的對象
+     * @param name 正在檢查的對象的名稱
+     * @throws ChecksNotPassException 如果對象為null
      */
     @Contract(value = "null, _ -> fail", pure = true)
     public static void NotNull(@Nullable Object o, @NotNull String name) throws ChecksNotPassException {
@@ -27,11 +27,11 @@ public final class Checks {
     }
 
     /**
-     * Ensures that the specified object is null.
+     * 確保指定的對象為null。
      *
-     * @param o    the object to check for nullity
-     * @param name the name of the object being checked
-     * @throws ChecksNotPassException if the object is not null
+     * @param o    要檢查null性的對象
+     * @param name 正在檢查的對象的名稱
+     * @throws ChecksNotPassException 如果對象不為null
      */
     @Contract(value = "!null, _ -> fail", pure = true)
     public static void IsNull(@Nullable Object o, @NotNull String name) throws ChecksNotPassException {
@@ -41,11 +41,11 @@ public final class Checks {
     }
 
     /**
-     * Ensures that all objects in the specified array extend the specified class.
+     * 確保指定陣列中的所有對象都擴展了指定的類。
      *
-     * @param clazz the class to check against
-     * @param os    the array of objects to check
-     * @throws ChecksNotPassException if any object in the array does not extend the specified class
+     * @param clazz 要檢查的類
+     * @param os    要檢查的對象陣列
+     * @throws ChecksNotPassException 如果陣列中的任何對象未擴展指定的類
      */
     @Contract(pure = true)
     public static void AllExtends(@NotNull Class<?> clazz, Object @NotNull ... os) {
@@ -57,4 +57,3 @@ public final class Checks {
     }
 
 }
-

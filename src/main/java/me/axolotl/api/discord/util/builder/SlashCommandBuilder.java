@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 
 /**
- * The SlashCommandBuilder class provides a template for building slash commands.
+ * SlashCommandBuilder類提供了一個用於構建斜槓指令的模板。
  *
  * @since 2024-02-22
  */
@@ -23,46 +23,46 @@ public abstract class SlashCommandBuilder {
     private final Map<DiscordLocale, String> descriptionLocalizations = new HashMap<>();
 
     /**
-     * Constructs a new SlashCommandBuilder with the specified name and description.
+     * 使用指定的名稱和描述構造一個新的SlashCommandBuilder。
      *
-     * @param name        the name of the slash command
-     * @param description the description of the slash command
+     * @param name        斜槓指令的名稱
+     * @param description 斜槓指令的描述
      */
     public SlashCommandBuilder(String name, String description) {
         this(name, description, Collections.emptyList(), Map.of(), Map.of());
     }
 
     /**
-     * Constructs a new SlashCommandBuilder with the specified name, description, and options.
+     * 使用指定的名稱、描述和選項構造一個新的SlashCommandBuilder。
      *
-     * @param name        the name of the slash command
-     * @param description the description of the slash command
-     * @param options     the options of the slash command
+     * @param name        斜槓指令的名稱
+     * @param description 斜槓指令的描述
+     * @param options     斜槓指令的選項
      */
     public SlashCommandBuilder(String name, String description, List<OptionData> options) {
         this(name, description, options, Map.of(), Map.of());
     }
 
     /**
-     * Constructs a new SlashCommandBuilder with the specified name, description, options, and name localizations.
+     * 使用指定的名稱、描述、選項和名稱本地化構造一個新的SlashCommandBuilder。
      *
-     * @param name              the name of the slash command
-     * @param description       the description of the slash command
-     * @param options           the options of the slash command
-     * @param nameLocalizations the name localizations of the slash command
+     * @param name              斜槓指令的名稱
+     * @param description       斜槓指令的描述
+     * @param options           斜槓指令的選項
+     * @param nameLocalizations 斜槓指令的名稱本地化
      */
     public SlashCommandBuilder(String name, String description, List<OptionData> options, Map<DiscordLocale, String> nameLocalizations) {
         this(name, description, options, nameLocalizations, Map.of());
     }
 
     /**
-     * Constructs a new SlashCommandBuilder with the specified name, description, options, name localizations, and description localizations.
+     * 使用指定的名稱、描述、選項、名稱本地化和描述本地化構造一個新的SlashCommandBuilder。
      *
-     * @param name                     the name of the slash command
-     * @param description              the description of the slash command
-     * @param options                  the options of the slash command
-     * @param nameLocalizations        the name localizations of the slash command
-     * @param descriptionLocalizations the description localizations of the slash command
+     * @param name                     斜槓指令的名稱
+     * @param description              斜槓指令的描述
+     * @param options                  斜槓指令的選項
+     * @param nameLocalizations        斜槓指令的名稱本地化
+     * @param descriptionLocalizations 斜槓指令的描述本地化
      */
     public SlashCommandBuilder(String name, String description, List<OptionData> options, Map<DiscordLocale, String> nameLocalizations, Map<DiscordLocale, String> descriptionLocalizations) {
         this.name = name;
@@ -73,9 +73,9 @@ public abstract class SlashCommandBuilder {
     }
 
     /**
-     * Gets the SlashCommandData object representing the slash command.
+     * 獲取表示斜槓指令的SlashCommandData對象。
      *
-     * @return the SlashCommandData object representing the slash command
+     * @return 表示斜槓指令的SlashCommandData對象
      */
     @NotNull
     public final SlashCommandData getCommand() {
@@ -83,9 +83,9 @@ public abstract class SlashCommandBuilder {
     }
 
     /**
-     * Gets the name of the slash command.
+     * 獲取斜槓指令的名稱。
      *
-     * @return the name of the slash command
+     * @return 斜槓指令的名稱
      */
     @NotNull
     public final String getName() {
@@ -93,11 +93,10 @@ public abstract class SlashCommandBuilder {
     }
 
     /**
-     * Specifies the action to be performed when the slash command is submitted.
+     * 指定當提交斜槓指令時要執行的操作。
      *
-     * @param event the event representing the submission of the slash command
+     * @param event 表示提交斜槓指令的事件
      */
     public abstract void onSubmit(SlashCommandInteractionEvent event);
 
 }
-

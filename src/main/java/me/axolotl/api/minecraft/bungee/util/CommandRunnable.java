@@ -8,39 +8,39 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 /**
- * The CommandRunnable class provides a template for creating commands with tab completion.
+ * CommandRunnable類別提供了一個模板，用於創建具有Tab補全的指令。
  * <br>
- * For Bukkit? Use {@link me.axolotl.api.minecraft.bukkit.util.CommandRunnable}
+ * 使用{@link me.axolotl.api.minecraft.bukkit.util.CommandRunnable}創建Bukkit/Spigot的指令
  *
  * @since 2024-02-08
  */
 public abstract class CommandRunnable extends Command implements TabExecutor {
 
     /**
-     * Constructs a CommandRunnable with the specified name.
+     * 使用指定的名稱構造一個CommandRunnable。
      *
-     * @param name The name of the command.
+     * @param name 指令的名稱。
      */
     public CommandRunnable(String name) {
         super(name);
     }
 
     /**
-     * Constructs a CommandRunnable with the specified name, and permission.
+     * 使用指定的名稱和權限構造一個CommandRunnable。
      *
-     * @param name       The name of the command.
-     * @param permission The permission required to execute the command.
+     * @param name       指令的名稱。
+     * @param permission 執行該指令所需的權限。
      */
     public CommandRunnable(String name, String permission) {
         super(name, permission);
     }
 
     /**
-     * Constructs a CommandRunnable with the specified name, permission, and aliases.
+     * 使用指定的名稱、權限和別名構造一個CommandRunnable。
      *
-     * @param name       The name of the command.
-     * @param permission The permission required to execute the command.
-     * @param aliases    Any aliases for the command.
+     * @param name       指令的名稱。
+     * @param permission 執行該指令所需的權限。
+     * @param aliases    指令的任何別名。
      */
     public CommandRunnable(String name, String permission, String... aliases) {
         super(name, permission, aliases);
@@ -57,19 +57,19 @@ public abstract class CommandRunnable extends Command implements TabExecutor {
     }
 
     /**
-     * Executes the command.
+     * 執行指令。
      *
-     * @param sender The command sender.
-     * @param args   The command arguments.
+     * @param sender 指令發送者。
+     * @param args   指令參數。
      */
     public abstract void run(CommandSender sender, String[] args);
 
     /**
-     * Provides tab completion for the command.
+     * 為指令提供Tab補全。
      *
-     * @param sender The command sender.
-     * @param args   The command arguments.
-     * @return A list of tab completion options.
+     * @param sender 指令發送者。
+     * @param args   指令參數。
+     * @return Tab補全選項的列表。
      */
     @Nullable
     public abstract List<String> tab(CommandSender sender, String[] args);

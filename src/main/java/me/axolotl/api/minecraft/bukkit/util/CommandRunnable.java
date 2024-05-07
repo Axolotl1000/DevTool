@@ -10,10 +10,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 /**
- * The CommandRunnable class provides a template for creating Bukkit/Spigot commands with tab completion.
+ * CommandRunnable類提供了一個模板，用於創建Bukkit/Spigot指令及其Tab自動補全。
  *
  * <br>
- * For BungeeCord? Use {@link me.axolotl.api.minecraft.bungee.util.CommandRunnable}
+ * 使用{@link me.axolotl.api.minecraft.bungee.util.CommandRunnable}創建BungeeCord的指令
  *
  * @since 2024-02-08
  */
@@ -22,18 +22,18 @@ public abstract class CommandRunnable implements CommandExecutor, TabExecutor {
     private final String commandName;
 
     /**
-     * Constructs a CommandRunnable with the specified command name.
+     * 使用指定的指令名構造一個CommandRunnable。
      *
-     * @param commandName The name of the command.
+     * @param commandName 指令的名稱。
      */
     public CommandRunnable(String commandName) {
         this.commandName = commandName;
     }
 
     /**
-     * Retrieves the name of the command.
+     * 獲取指令的名稱。
      *
-     * @return The name of the command.
+     * @return 指令的名稱。
      */
     public String getCommandName() {
         return commandName;
@@ -51,26 +51,25 @@ public abstract class CommandRunnable implements CommandExecutor, TabExecutor {
     }
 
     /**
-     * Executes the command.
+     * 執行指令。
      *
-     * @param sender  The command sender.
-     * @param command The command being executed.
-     * @param s       The label of the command.
-     * @param args    The arguments passed to the command.
-     * @return true if the command was executed successfully, false otherwise.
+     * @param sender  指令發送者。
+     * @param command 正在執行的指令。
+     * @param s       指令的標籤。
+     * @param args    傳遞給指令的參數。
+     * @return 如果成功執行了指令則返回true，否則返回false。
      */
     public abstract boolean execute(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args);
 
     /**
-     * Provides tab completion for the command.
+     * 為指令提供Tab自動補全。
      *
-     * @param sender  The command sender.
-     * @param command The command being tab completed.
-     * @param s       The label of the command.
-     * @param args    The arguments passed to the command.
-     * @return A list of tab completion options.
+     * @param sender  指令發送者。
+     * @param command 正在Tab自動補全的指令。
+     * @param s       指令的標籤。
+     * @param args    傳遞給指令的參數。
+     * @return Tab自動補全選項的列表。
      */
     public abstract List<String> tab(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args);
 
 }
-

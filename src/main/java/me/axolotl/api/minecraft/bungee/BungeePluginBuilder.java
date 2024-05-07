@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * The BungeePluginBuilder class is an abstract class that extends {@link Plugin} and provides methods for building BungeeCord plugins.
+ * BungeePluginBuilder類別是一個抽象類別，擴展了{@link Plugin}，並提供了構建BungeeCord插件的方法。
  * <br />
- * For Bukkit/Spigot? Use {@link me.axolotl.api.minecraft.bukkit.JavaPluginBuilder}
+ * 使用{@link me.axolotl.api.minecraft.bukkit.JavaPluginBuilder}創建Bukkit/Spigot插件
  *
  * @since 2024-02-08
  */
@@ -24,7 +24,7 @@ public abstract class BungeePluginBuilder extends Plugin {
     private final Logger logger = getLogger();
 
     /**
-     * Called when the plugin is being loaded.
+     * 當插件正在加載時調用。
      */
     @Override
     public final void onLoad() {
@@ -34,7 +34,7 @@ public abstract class BungeePluginBuilder extends Plugin {
     }
 
     /**
-     * Called when the plugin is being enabled.
+     * 當插件啟用時調用。
      */
     @Override
     public final void onEnable() {
@@ -73,7 +73,7 @@ public abstract class BungeePluginBuilder extends Plugin {
     }
 
     /**
-     * Called when the plugin is being disabled.
+     * 當插件停用時調用。
      */
     @Override
     public final void onDisable() {
@@ -83,47 +83,47 @@ public abstract class BungeePluginBuilder extends Plugin {
     }
 
     /**
-     * Retrieves the name of the plugin.
+     * 獲取插件的名稱。
      *
-     * @return the name of the plugin
+     * @return 插件的名稱
      */
     public abstract @NotNull String getPluginName();
 
     /**
-     * Retrieves a list of commands associated with the plugin.
+     * 獲取與插件關聯的指令列表。
      *
-     * @return a list of commands
+     * @return 指令列表
      */
     public abstract @NotNull List<CommandRunnable> getCommands();
 
     /**
-     * Retrieves a list of event listeners associated with the plugin.
+     * 獲取與插件關聯的事件監聽器列表。
      *
-     * @return a list of event listeners
+     * @return 事件監聽器列表
      */
     public abstract @NotNull List<Listener> getEvents();
 
     /**
-     * Retrieves a list of dependencies with the plugin.
+     * 獲取與插件關聯的依賴列表。
      *
-     * @return a list of depend on Plugins
+     * @return 依賴插件列表
      */
     public abstract @NotNull List<DependPlugin> getDependencies();
 
     /**
-     * Runs custom tasks when the plugin is being loaded.
+     * 當插件正在加載時運行自定義任務。
      */
     public void runOnLoading() {
     }
 
     /**
-     * Runs custom tasks when the plugin is being enabled.
+     * 當插件正在啟用時運行自定義任務。
      */
     public void runOnEnable() {
     }
 
     /**
-     * Runs custom tasks when the plugin is being disabled.
+     * 當插件正在停用時運行自定義任務。
      */
     public void runOnDisable() {
     }
