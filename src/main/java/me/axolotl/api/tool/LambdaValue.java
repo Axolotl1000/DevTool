@@ -3,9 +3,9 @@ package me.axolotl.api.tool;
 import me.axolotl.api.exception.MethodNotAllowed;
 
 /**
- * The LambdaValue class represents a value that can be changed or frozen.
+ * LambdaValue類別代表一個可變動或凍結的值。
  *
- * @param <T> The type of the value.
+ * @param <T> 值的類型。
  * @since 2024-02-08
  */
 public final class LambdaValue<T> {
@@ -15,7 +15,7 @@ public final class LambdaValue<T> {
     private boolean changeable = true;
 
     /**
-     * Constructs a new LambdaValue with a nullable value.
+     * 使用可為空值構造一個新的LambdaValue。
      */
     public LambdaValue() {
         this.data = null;
@@ -23,9 +23,9 @@ public final class LambdaValue<T> {
     }
 
     /**
-     * Constructs a new LambdaValue with the specified value and nullable as true.
+     * 使用指定值和可為空標誌構造一個新的LambdaValue。
      *
-     * @param value The initial value.
+     * @param value 初始值。
      */
     public LambdaValue(T value) {
         this.data = value;
@@ -33,10 +33,10 @@ public final class LambdaValue<T> {
     }
 
     /**
-     * Constructs a new LambdaValue with the specified value and nullable flag.
+     * 使用指定值和可為空標誌構造一個新的LambdaValue。
      *
-     * @param value    The initial value.
-     * @param nullable Whether the value can be null or not.
+     * @param value    初始值。
+     * @param nullable 值是否可以為空。
      */
     public LambdaValue(T value, boolean nullable) {
         this.data = value;
@@ -44,22 +44,22 @@ public final class LambdaValue<T> {
     }
 
     /**
-     * Freezes the LambdaValue, making it unchangeable.
+     * 凍結LambdaValue，使其無法更改。
      */
     public void freeze() {
         this.changeable = false;
     }
 
     /**
-     * Sets the value of the LambdaValue.
+     * 設置LambdaValue的值。
      *
-     * @param data The new value.
-     * @throws NullPointerException If nullable is false and data is null.
-     * @throws MethodNotAllowed     If the LambdaValue is frozen.
+     * @param data 新的值。
+     * @throws IllegalArgumentException 如果不允許null還是傳入null。
+     * @throws MethodNotAllowed     如果LambdaValue已被凍結。
      */
     public void set(T data) {
         if (!this.nullable && data == null) {
-            throw new NullPointerException("Null not allowed");
+            throw new IllegalArgumentException("Null not allowed");
         }
         if (!this.changeable) {
             throw new MethodNotAllowed(new IllegalAccessException("Changing Value not allowed"));
@@ -68,12 +68,11 @@ public final class LambdaValue<T> {
     }
 
     /**
-     * Gets the value of the LambdaValue.
+     * 獲取LambdaValue的值。
      *
-     * @return The current value.
+     * @return 當前值。
      */
     public T get() {
         return data;
     }
 }
-
