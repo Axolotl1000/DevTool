@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 import net.dv8tion.jda.internal.interactions.component.ButtonImpl;
 
 /**
- * The ButtonBuilder class is an abstract class for building buttons with various styles and properties.
+ * ButtonBuilder類是一個抽象類，用於構建具有各種風格和屬性的按鈕。
  *
  * @since 2024-02-22
  */
@@ -20,32 +20,32 @@ public abstract class ButtonBuilder {
     private boolean disable = false;
 
     /**
-     * Constructs a new ButtonBuilder with the specified ID.
+     * 用指定的ID構造一個新的ButtonBuilder。
      *
-     * @param id the ID of the button
+     * @param id 按鈕的ID
      */
     public ButtonBuilder(String id) {
         this(id, null, ButtonStyle.PRIMARY, null);
     }
 
     /**
-     * Constructs a new ButtonBuilder with the specified ID, name, and style.
+     * 用指定的ID，名稱和樣式構造一個新的ButtonBuilder。
      *
-     * @param id    the ID of the button
-     * @param name  the name of the button
-     * @param style the style of the button
+     * @param id    按鈕的ID
+     * @param name  按鈕的名稱
+     * @param style 按鈕的樣式
      */
     public ButtonBuilder(String id, String name, ButtonStyle style) {
         this(id, name, style, null);
     }
 
     /**
-     * Constructs a new ButtonBuilder with the specified ID, name, style, and emoji.
+     * 用指定的ID，名稱，樣式和表情符號構造一個新的ButtonBuilder。
      *
-     * @param id    the ID of the button
-     * @param name  the name of the button
-     * @param style the style of the button
-     * @param emoji the emoji associated with the button
+     * @param id    按鈕的ID
+     * @param name  按鈕的名稱
+     * @param style 按鈕的樣式
+     * @param emoji 與按鈕關聯的表情符號
      */
     public ButtonBuilder(String id, String name, ButtonStyle style, Emoji emoji) {
         this.id = id;
@@ -55,68 +55,68 @@ public abstract class ButtonBuilder {
     }
 
     /**
-     * Enables the button.
+     * 啟用按鈕。
      */
     public void asEnable() {
         this.disable = false;
     }
 
     /**
-     * Disables the button.
+     * 禁用按鈕。
      */
     public void asDisable() {
         this.disable = true;
     }
 
     /**
-     * Sets the name of the button.
+     * 設置按鈕的名稱。
      *
-     * @param name the name of the button
+     * @param name 按鈕的名稱
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Sets the emoji associated with the button.
+     * 設置與按鈕關聯的表情符號。
      *
-     * @param emoji the emoji associated with the button
+     * @param emoji 與按鈕關聯的表情符號
      */
     public void setEmoji(Emoji emoji) {
         this.emoji = emoji;
     }
 
     /**
-     * Changes the style of the button.
+     * 更改按鈕的樣式。
      *
-     * @param style the new style of the button
+     * @param style 按鈕的新樣式
      */
     public void changeStyle(ButtonStyle style) {
         this.style = style;
     }
 
     /**
-     * Builds and returns the button.
+     * 構建並返回按鈕。
      *
-     * @return the built button
+     * @return 構建的按鈕
      */
     public Button getButton() {
         return new ButtonImpl(id, name, style, disable, emoji);
     }
 
     /**
-     * Gets the ID of the button.
+     * 獲取按鈕的ID。
      *
-     * @return the ID of the button
+     * @return 按鈕的ID
      */
     public String getId() {
         return this.id;
     }
 
     /**
-     * Handles button press events.
+     * 處理按鈕按下事件。
      *
-     * @param event the button interaction event
+     * @param event 按鈕交互事件
      */
     public abstract void onPress(ButtonInteractionEvent event);
 }

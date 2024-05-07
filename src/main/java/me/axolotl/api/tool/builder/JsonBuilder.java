@@ -4,8 +4,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 /**
- * JsonBuilder is a utility class for constructing JSON objects and arrays.
- * It provides methods to create and manipulate JSON structures in a fluent manner.
+ * JsonBuilder是一個用於構建JSON對象和數組的實用工具類。
+ * 它提供了在流暢方式中創建和操作JSON結構的方法。
  *
  * @since 2024-02-08
  */
@@ -14,20 +14,20 @@ public final class JsonBuilder {
     private final JsonObject object = new JsonObject();
 
     /**
-     * Retrieves the final JsonObject constructed.
+     * 檢索構建的最終JsonObject。
      *
-     * @return The final JsonObject constructed.
+     * @return 構建的最終JsonObject。
      */
     public JsonObject finalObject() {
         return this.object;
     }
 
     /**
-     * Retrieves a SubObject associated with the specified key.
-     * If the key doesn't exist, a new empty JsonObject is added.
+     * 檢索與指定鍵關聯的SubObject。
+     * 如果鍵不存在，則添加一個新的空JsonObject。
      *
-     * @param key The key associated with the SubObject.
-     * @return The SubObject associated with the key.
+     * @param key 與SubObject關聯的鍵。
+     * @return 與鍵關聯的SubObject。
      */
     public SubObject getSubAsObject(String key) {
         if (this.object.get(key) == null) {
@@ -37,11 +37,11 @@ public final class JsonBuilder {
     }
 
     /**
-     * Retrieves a SubArray associated with the specified key.
-     * If the key doesn't exist, a new empty JsonArray is added.
+     * 檢索與指定鍵關聯的SubArray。
+     * 如果鍵不存在，則添加一個新的空JsonArray。
      *
-     * @param key The key associated with the SubArray.
-     * @return The SubArray associated with the key.
+     * @param key 與SubArray關聯的鍵。
+     * @return 與鍵關聯的SubArray。
      */
     public SubArray getSubAsArray(String key) {
         if (this.object.get(key) == null) {
@@ -51,11 +51,11 @@ public final class JsonBuilder {
     }
 
     /**
-     * Sets a key-value pair of type String within this Object.
+     * 在此對象中設置一個String類型的鍵值對。
      *
-     * @param key   The key for the value.
-     * @param value The String value to be set.
-     * @return This SubObject for method chaining.
+     * @param key   值的鍵。
+     * @param value 要設置的String值。
+     * @return 用於方法鏈接的這個SubObject。
      */
     public JsonBuilder setKV(String key, String value) {
         object.addProperty(key, value);
@@ -63,11 +63,11 @@ public final class JsonBuilder {
     }
 
     /**
-     * Sets a key-value pair of type Number within this Object.
+     * 在此對象中設置一個Number類型的鍵值對。
      *
-     * @param key   The key for the value.
-     * @param value The Number value to be set.
-     * @return This SubObject for method chaining.
+     * @param key   值的鍵。
+     * @param value 要設置的Number值。
+     * @return 用於方法鏈接的這個SubObject。
      */
     public JsonBuilder setKV(String key, Number value) {
         object.addProperty(key, value);
@@ -75,11 +75,11 @@ public final class JsonBuilder {
     }
 
     /**
-     * Sets a key-value pair of type Character within this Object.
+     * 在此對象中設置一個Character類型的鍵值對。
      *
-     * @param key   The key for the value.
-     * @param value The Character value to be set.
-     * @return This SubObject for method chaining.
+     * @param key   值的鍵。
+     * @param value 要設置的Character值。
+     * @return 用於方法鏈接的這個SubObject。
      */
     public JsonBuilder setKV(String key, Character value) {
         object.addProperty(key, value);
@@ -87,11 +87,11 @@ public final class JsonBuilder {
     }
 
     /**
-     * Sets a key-value pair of type Boolean within this Object.
+     * 在此對象中設置一個Boolean類型的鍵值對。
      *
-     * @param key   The key for the value.
-     * @param value The Boolean value to be set.
-     * @return This SubObject for method chaining.
+     * @param key   值的鍵。
+     * @param value 要設置的Boolean值。
+     * @return 用於方法鏈接的這個SubObject。
      */
     public JsonBuilder setKV(String key, Boolean value) {
         object.addProperty(key, value);
@@ -99,7 +99,7 @@ public final class JsonBuilder {
     }
 
     /**
-     * Represents a nested JSON object within JsonBuilder.
+     * 表示JsonBuilder內部的嵌套JSON對象。
      */
     public final class SubObject {
 
@@ -109,20 +109,20 @@ public final class JsonBuilder {
         }
 
         /**
-         * Constructs a SubObject with the provided JsonObject.
+         * 使用提供的JsonObject構造SubObject。
          *
-         * @param object The JsonObject to wrap.
+         * @param object 要包裝的JsonObject。
          */
         private SubObject(JsonObject object) {
             this.object = object;
         }
 
         /**
-         * Retrieves a SubObject associated with the specified key within this SubObject.
-         * If the key doesn't exist, a new empty JsonObject is added.
+         * 檢索此SubObject內與指定鍵關聯的SubObject。
+         * 如果鍵不存在，則添加一個新的空JsonObject。
          *
-         * @param key The key associated with the SubObject.
-         * @return The SubObject associated with the key.
+         * @param key 與SubObject關聯的鍵。
+         * @return 與鍵關聯的SubObject。
          */
         public SubObject getSubAsObject(String key) {
             if (this.object.get(key) == null) {
@@ -132,11 +132,11 @@ public final class JsonBuilder {
         }
 
         /**
-         * Retrieves a SubArray associated with the specified key within this SubObject.
-         * If the key doesn't exist, a new empty JsonArray is added.
+         * 檢索此SubObject內與指定鍵關聯的SubArray。
+         * 如果鍵不存在，則添加一個新的空JsonArray。
          *
-         * @param key The key associated with the SubArray.
-         * @return The SubArray associated with the key.
+         * @param key 與SubArray關聯的鍵。
+         * @return 與鍵關聯的SubArray。
          */
         public SubArray getSubAsArray(String key) {
             if (this.object.get(key) == null) {
@@ -146,11 +146,11 @@ public final class JsonBuilder {
         }
 
         /**
-         * Sets a key-value pair of type String within this SubObject.
+         * 在此SubObject中設置一個String類型的鍵值對。
          *
-         * @param key   The key for the value.
-         * @param value The String value to be set.
-         * @return This SubObject for method chaining.
+         * @param key   值的鍵。
+         * @param value 要設置的String值。
+         * @return 用於方法鏈接的這個SubObject。
          */
         public SubObject setKV(String key, String value) {
             object.addProperty(key, value);
@@ -158,11 +158,11 @@ public final class JsonBuilder {
         }
 
         /**
-         * Sets a key-value pair of type Number within this SubObject.
+         * 在此SubObject中設置一個Number類型的鍵值對。
          *
-         * @param key   The key for the value.
-         * @param value The Number value to be set.
-         * @return This SubObject for method chaining.
+         * @param key   值的鍵。
+         * @param value 要設置的Number值。
+         * @return 用於方法鏈接的這個SubObject。
          */
         public SubObject setKV(String key, Number value) {
             object.addProperty(key, value);
@@ -170,11 +170,11 @@ public final class JsonBuilder {
         }
 
         /**
-         * Sets a key-value pair of type Character within this SubObject.
+         * 在此SubObject中設置一個Character類型的鍵值對。
          *
-         * @param key   The key for the value.
-         * @param value The Character value to be set.
-         * @return This SubObject for method chaining.
+         * @param key   值的鍵。
+         * @param value 要設置的Character值。
+         * @return 用於方法鏈接的這個SubObject。
          */
         public SubObject setKV(String key, Character value) {
             object.addProperty(key, value);
@@ -182,11 +182,11 @@ public final class JsonBuilder {
         }
 
         /**
-         * Sets a key-value pair of type Boolean within this SubObject.
+         * 在此SubObject中設置一個Boolean類型的鍵值對。
          *
-         * @param key   The key for the value.
-         * @param value The Boolean value to be set.
-         * @return This SubObject for method chaining.
+         * @param key   值的鍵。
+         * @param value 要設置的Boolean值。
+         * @return 用於方法鏈接的這個SubObject。
          */
         public SubObject setKV(String key, Boolean value) {
             object.addProperty(key, value);
@@ -196,7 +196,7 @@ public final class JsonBuilder {
     }
 
     /**
-     * Represents a nested JSON array within JsonBuilder.
+     * 表示JsonBuilder內部的嵌套JSON數組。
      */
     public final class SubArray {
         private JsonArray array;
@@ -205,22 +205,21 @@ public final class JsonBuilder {
         }
 
         /**
-         * Constructs a SubArray with the provided JsonArray.
+         * 使用提供的JsonArray構造SubArray。
          *
-         * @param array The JsonArray to wrap.
+         * @param array 要包裝的JsonArray。
          */
         private SubArray(JsonArray array) {
             this.array = array;
         }
 
         /**
-         * Retrieves a SubObject at the specified index within this SubArray.
-         * If the index is out of bounds or the element at the index is not an object,
-         * throws ArrayIndexOutOfBoundsException.
+         * 檢索此SubArray中指定索引處的SubObject。
+         * 如果索引超出範圍或索引處的元素不是對象，則拋出ArrayIndexOutOfBoundsException。
          *
-         * @param i The index of the SubObject to retrieve.
-         * @return The SubObject at the specified index.
-         * @throws ArrayIndexOutOfBoundsException If the index is out of bounds.
+         * @param i 要檢索的SubObject的索引。
+         * @return 指定索引處的SubObject。
+         * @throws ArrayIndexOutOfBoundsException 如果索引超出範圍。
          */
         public SubObject getSubAsObject(Integer i) throws ArrayIndexOutOfBoundsException {
             if (this.array.get(i) == null) {
@@ -234,13 +233,12 @@ public final class JsonBuilder {
         }
 
         /**
-         * Retrieves a SubArray at the specified index within this SubArray.
-         * If the index is out of bounds or the element at the index is not an array,
-         * throws ArrayIndexOutOfBoundsException.
+         * 檢索此SubArray中指定索引處的SubArray。
+         * 如果索引超出範圍或索引處的元素不是數組，則拋出ArrayIndexOutOfBoundsException。
          *
-         * @param i The index of the SubArray to retrieve.
-         * @return The SubArray at the specified index.
-         * @throws ArrayIndexOutOfBoundsException If the index is out of bounds.
+         * @param i 要檢索的SubArray的索引。
+         * @return 指定索引處的SubArray。
+         * @throws ArrayIndexOutOfBoundsException 如果索引超出範圍。
          */
         public SubArray getSubAsArray(Integer i) throws ArrayIndexOutOfBoundsException {
             if (this.array.get(i) == null) {
@@ -254,10 +252,10 @@ public final class JsonBuilder {
         }
 
         /**
-         * Appends a String value to this SubArray.
+         * 將一個String值添加到此SubArray。
          *
-         * @param value The String value to append.
-         * @return This SubArray for method chaining.
+         * @param value 要添加的String值。
+         * @return 用於方法鏈接的這個SubArray。
          */
         public SubArray put(String value) {
             array.add(value);
@@ -265,10 +263,10 @@ public final class JsonBuilder {
         }
 
         /**
-         * Appends a Character value to this SubArray.
+         * 將一個Character值添加到此SubArray。
          *
-         * @param value The Character value to append.
-         * @return This SubArray for method chaining.
+         * @param value 要添加的Character值。
+         * @return 用於方法鏈接的這個SubArray。
          */
         public SubArray put(Character value) {
             array.add(value);
@@ -276,10 +274,10 @@ public final class JsonBuilder {
         }
 
         /**
-         * Appends a Number value to this SubArray.
+         * 將一個Number值添加到此SubArray。
          *
-         * @param value The Number value to append.
-         * @return This SubArray for method chaining.
+         * @param value 要添加的Number值。
+         * @return 用於方法鏈接的這個SubArray。
          */
         public SubArray put(Number value) {
             array.add(value);
@@ -287,10 +285,10 @@ public final class JsonBuilder {
         }
 
         /**
-         * Appends a Boolean value to this SubArray.
+         * 將一個Boolean值添加到此SubArray。
          *
-         * @param value The Boolean value to append.
-         * @return This SubArray for method chaining.
+         * @param value 要添加的Boolean值。
+         * @return 用於方法鏈接的這個SubArray。
          */
         public SubArray put(Boolean value) {
             array.add(value);

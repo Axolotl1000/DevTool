@@ -4,55 +4,55 @@ import me.axolotl.api.exception.MethodNotAllowed;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * The TableDataInfo enum represents additional information for database table columns.
+ * TableDataInfo枚舉表示數據庫表列的額外信息。
  *
  * @since 2024-02-24
  */
 public enum TableDataInfo {
 
     /**
-     * Represents the default value for a column.
+     * 表示列的默認值。
      */
     DEFAULT,
 
     /**
-     * Represents the length of a column.
+     * 表示列的長度。
      */
     LENGTH,
 
     /**
-     * Represents whether a column is nullable.
+     * 表示列是否可為空。
      */
     NULLABLE,
 
     /**
-     * Represents whether a column uses ZEROFILL.
+     * 表示列是否使用0填滿空缺。
      */
     ZEROFILL,
 
     /**
-     * Represents whether a column is unsigned.
+     * 表示列是否為無符號。
      */
     UNSIGNED,
 
     /**
-     * Represents the comment associated with a column.
+     * 表示與列關聯的注釋。
      */
     COMMENT;
 
     /* ========== ========== ========== ========== ========== */
 
-    // Methods for ENUM DEFAULT
+    // ENUM DEFAULT的方法
 
     @NotNull
     private String defValue = "";
 
     /**
-     * Sets the default value for the column.
+     * 設置列的默認值。
      *
-     * @param s the default value to set
-     * @return the TableDataInfo object with the updated default value
-     * @throws MethodNotAllowed if called for an enum other than DEFAULT
+     * @param s 要設置的默認值
+     * @return 具有更新的默認值的TableDataInfo對象
+     * @throws MethodNotAllowed 如果對除DEFAULT以外的枚舉調用了該方法
      */
     public TableDataInfo setDefaultValue(@NotNull String s) {
         if (this != DEFAULT) throw new MethodNotAllowed("Only DEFAULT can use this method.");
@@ -62,26 +62,26 @@ public enum TableDataInfo {
     }
 
     /**
-     * Gets the default value of the column.
+     * 獲取列的默認值。
      *
-     * @return the default value of the column
-     * @throws MethodNotAllowed if called for an enum other than DEFAULT
+     * @return 列的默認值
+     * @throws MethodNotAllowed 如果對除DEFAULT以外的枚舉調用了該方法
      */
     public String getDefaultValue() {
         if (this != DEFAULT) throw new MethodNotAllowed("Only DEFAULT can use this method.");
         return defValue;
     }
 
-    // Methods for ENUM LENGTH
+    // ENUM LENGTH的方法
 
     private int length = 0;
 
     /**
-     * Sets the length of the column.
+     * 設置列的長度。
      *
-     * @param length the length to set
-     * @return the TableDataInfo object with the updated length
-     * @throws MethodNotAllowed if called for an enum other than LENGTH
+     * @param length 要設置的長度
+     * @return 具有更新的長度的TableDataInfo對象
+     * @throws MethodNotAllowed 如果對除LENGTH以外的枚舉調用了該方法
      */
     public TableDataInfo setLength(int length) {
         if (this != LENGTH) throw new MethodNotAllowed("Only LENGTH can use this method.");
@@ -91,26 +91,26 @@ public enum TableDataInfo {
     }
 
     /**
-     * Gets the length of the column.
+     * 獲取列的長度。
      *
-     * @return the length of the column
-     * @throws MethodNotAllowed if called for an enum other than LENGTH
+     * @return 列的長度
+     * @throws MethodNotAllowed 如果對除LENGTH以外的枚舉調用了該方法
      */
     public int getLength() {
         if (this != LENGTH) throw new MethodNotAllowed("Only LENGTH can use this method.");
         return this.length;
     }
 
-    // Methods for ENUM COMMENT
+    // ENUM COMMENT的方法
 
     private String comment = "";
 
     /**
-     * Sets the comment for the column.
+     * 設置列的注釋。
      *
-     * @param comment the comment to set
-     * @return the TableDataInfo object with the updated comment
-     * @throws MethodNotAllowed if called for an enum other than COMMENT
+     * @param comment 要設置的注釋
+     * @return 具有更新的注釋的TableDataInfo對象
+     * @throws MethodNotAllowed 如果對除COMMENT以外的枚舉調用了該方法
      */
     public TableDataInfo setComment(String comment) {
         if (this != COMMENT) throw new MethodNotAllowed("Only COMMENT can use this method.");
@@ -120,10 +120,10 @@ public enum TableDataInfo {
     }
 
     /**
-     * Gets the comment for the column.
+     * 獲取列的注釋。
      *
-     * @return the comment for the column
-     * @throws MethodNotAllowed if called for an enum other than COMMENT
+     * @return 列的注釋
+     * @throws MethodNotAllowed 如果對除COMMENT以外的枚舉調用了該方法
      */
     public String getComment() {
         if (this != COMMENT) throw new MethodNotAllowed("Only COMMENT can use this method.");
@@ -133,9 +133,9 @@ public enum TableDataInfo {
     /* ========== ========== ========== ========== ========== */
 
     /**
-     * Returns a string representation of the TableDataInfo object.
+     * 返回TableDataInfo對象的字符串表示形式。
      *
-     * @return a string representation of the object
+     * @return 對象的字符串表示形式
      */
     @Override
     public String toString() {

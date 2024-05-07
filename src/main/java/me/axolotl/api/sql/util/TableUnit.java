@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The TableUnit class represents a unit of a database table, containing its ID, type, and associated data information.
+ * TableUnit類表示數據庫表的單元，包含其ID、類型和相關的數據信息。
  *
  * @since 2024-02-24
  */
@@ -19,11 +19,11 @@ public final class TableUnit {
     private final List<TableDataInfo> info = new ArrayList<>();
 
     /**
-     * Constructs a new TableUnit with the specified ID, type, and data information.
+     * 使用指定的ID、類型和數據信息構造一個新的TableUnit。
      *
-     * @param id   the ID of the table unit
-     * @param type the type of the table unit
-     * @param info the data information associated with the table unit
+     * @param id   表單元的ID
+     * @param type 表單元的類型
+     * @param info 表單元相關的數據信息
      */
     public TableUnit(@NotNull String id, @NotNull TableType type, @NotNull TableDataInfo... info) {
         this.id = id;
@@ -32,9 +32,9 @@ public final class TableUnit {
     }
 
     /**
-     * Returns a string representation of the TableUnit object.
+     * 返回TableUnit對象的字符串表示形式。
      *
-     * @return a string representation of the object
+     * @return 對象的字符串表示形式
      */
     @Override
     public String toString() {
@@ -46,4 +46,3 @@ public final class TableUnit {
     }
 
 }
-

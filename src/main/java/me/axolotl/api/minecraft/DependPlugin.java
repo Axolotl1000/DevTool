@@ -1,20 +1,20 @@
 package me.axolotl.api.minecraft;
 
 /**
- * The DependPlugin class represents a dependency plugin.
+ * DependPlugin類別代表一個依賴的插件。
  *
  * @since 2024-04-18
  */
 public class DependPlugin {
 
     private final String pluginID;
-    private final boolean force;
+    private final transient boolean force;
 
     /**
-     * Constructs a new DependPlugin with the specified plugin ID and force flag.
+     * 使用指定的插件ID和強制標誌構造一個新的DependPlugin。
      *
-     * @param pluginID the ID of the dependent plugin
-     * @param force    a boolean indicating whether the dependency is forced
+     * @param pluginID 依賴插件的ID
+     * @param force    一個布林值，指示依賴是否被強制執行
      */
     public DependPlugin(String pluginID, boolean force) {
         this.pluginID = pluginID;
@@ -22,27 +22,27 @@ public class DependPlugin {
     }
 
     /**
-     * Retrieves the ID of the dependent plugin.
+     * 檢索依賴插件的ID。
      *
-     * @return the ID of the dependent plugin
+     * @return 依賴插件的ID
      */
     public String getPluginID() {
         return pluginID;
     }
 
     /**
-     * Checks if the dependency is forced.
+     * 檢查依賴是否被強制執行。
      *
-     * @return true if the dependency is forced, false otherwise
+     * @return 如果依賴被強制執行則返回true，否則返回false
      */
     public boolean isForce() {
         return force;
     }
 
     /**
-     * Returns a string representation of the DependPlugin.
+     * 返回DependPlugin的字符串表示形式。
      *
-     * @return a string representation of the DependPlugin
+     * @return DependPlugin的字符串表示形式
      */
     @Override
     public String toString() {
@@ -52,4 +52,3 @@ public class DependPlugin {
                 '}';
     }
 }
-

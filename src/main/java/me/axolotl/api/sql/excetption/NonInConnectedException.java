@@ -1,46 +1,43 @@
 package me.axolotl.api.sql.excetption;
 
 /**
- * The NonInConnectedException class represents an exception that is thrown when an operation is attempted on a
- * database connection that is not currently established.
+ * NonInConnectedException異常在使用未連接的對象時拋出。
  *
  * @since 2024-02-22
  */
 public final class NonInConnectedException extends Exception {
-
     /**
-     * Constructs a new NonInConnectedException with no detail message.
+     * 構造一個新的NonInConnectedException異常，沒有詳細消息。
      */
     public NonInConnectedException() {
         super();
     }
 
     /**
-     * Constructs a new NonInConnectedException with the specified detail message.
+     * 構造一個新的NonInConnectedException異常，帶有指定的詳細消息。
      *
-     * @param message the detail message (which is saved for later retrieval by the getMessage() method)
+     * @param message 詳細消息。
      */
     public NonInConnectedException(String message) {
         super(message);
     }
 
     /**
-     * Constructs a new NonInConnectedException with the specified cause.
+     * 構造一個新的NonInConnectedException異常，帶有指定的原因。
      *
-     * @param cause the cause (which is saved for later retrieval by the getCause() method)
+     * @param cause 異常的原因。
      */
     public NonInConnectedException(Throwable cause) {
         super(cause);
     }
 
     /**
-     * Constructs a new NonInConnectedException with the specified detail message and cause.
+     * 構造一個新的NonInConnectedException異常，帶有指定的詳細消息和原因。
      *
-     * @param message the detail message (which is saved for later retrieval by the getMessage() method)
-     * @param cause   the cause (which is saved for later retrieval by the getCause() method)
+     * @param message 詳細消息。
+     * @param cause   異常的原因。
      */
     public NonInConnectedException(String message, Throwable cause) {
         super(message, cause);
     }
 }
-

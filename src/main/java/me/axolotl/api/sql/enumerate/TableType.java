@@ -1,74 +1,73 @@
 package me.axolotl.api.sql.enumerate;
 
 /**
- * The TableType enum represents data types for database table columns.
+ * TableType枚舉表示數據庫表列的數據類型。
  *
  * @since 2024-02-24
  */
 public enum TableType {
     /**
-     * Character type.
+     * 字符類型。
      */
     CHAR,
 
     /**
-     * Variable-length character type.
+     * 變長字符類型。
      */
     VARCHAR,
 
     /**
-     * Text type.
+     * 文本類型。
      */
     TEXT,
 
     /**
-     * Integer type.
+     * 整數類型。
      */
     INT,
 
     /**
-     * Big integer type.
+     * 大整數類型。
      */
     BIGINT,
 
     /**
-     * Decimal type.
+     * 十進制類型。
      */
     DECIMAL,
 
     /**
-     * Date type.
+     * 日期類型。
      */
     DATE,
 
     /**
-     * Time type.
+     * 時間類型。
      */
     TIME,
 
     /**
-     * Timestamp type.
+     * 時間戳類型。
      */
     TIMESTAMP,
 
     /**
-     * Binary type.
+     * 二進制類型。
      */
     BINARY,
 
     /**
-     * Variable-length binary type.
+     * 變長二進制類型。
      */
     VARBINARY,
 
     /**
-     * Binary large object type.
+     * 二進制大對象類型。
      */
     BLOB,
 
     /**
-     * Boolean type.
+     * 布林類型。
      */
     BOOLEAN
 }
-

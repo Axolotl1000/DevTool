@@ -1,45 +1,44 @@
 package me.axolotl.api.exception;
 
 /**
- * The ChecksNotPassException class represents an exception thrown when checks fail.
+ * ChecksNotPassException類表示在檢查失敗時拋出的異常。
  *
  * @since 2024-02-18
  */
 public final class ChecksNotPassException extends RuntimeException {
 
     /**
-     * Constructs a new ChecksNotPassException with no detail message.
+     * 構造一個新的ChecksNotPassException，沒有詳細消息。
      */
     public ChecksNotPassException() {
         super();
     }
 
     /**
-     * Constructs a new ChecksNotPassException with the specified detail message.
+     * 構造一個新的ChecksNotPassException，帶有指定的詳細消息。
      *
-     * @param message the detail message
+     * @param message 詳細消息
      */
     public ChecksNotPassException(String message) {
         super(message);
     }
 
     /**
-     * Constructs a new ChecksNotPassException with the specified cause.
+     * 構造一個新的ChecksNotPassException，帶有指定的原因。
      *
-     * @param cause the cause
+     * @param cause 原因
      */
     public ChecksNotPassException(Throwable cause) {
         super(cause);
     }
 
     /**
-     * Constructs a new ChecksNotPassException with the specified detail message and cause.
+     * 構造一個新的ChecksNotPassException，帶有指定的詳細消息和原因。
      *
-     * @param message the detail message
-     * @param cause   the cause
+     * @param message 詳細消息
+     * @param cause   原因
      */
     public ChecksNotPassException(String message, Throwable cause) {
         super(message, cause);
     }
 }
-
