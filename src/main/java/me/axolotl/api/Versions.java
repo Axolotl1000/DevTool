@@ -21,7 +21,7 @@ public final class Versions {
     private static Map<String, String> dependencies() {
         Map<String, String> ds = new HashMap<>();
 
-        ds.put("current", "1.4");
+        ds.put("current", "2.1");
         ds.put("org.spigotmc.spigot-api", "1.20.4-R0.1-SNAPSHOT");
         ds.put("net.md-5.bungeecord-api", "1.20-R0.2");
         ds.put("net.dv8tion.JDA", "5.0.0-beta.22");
