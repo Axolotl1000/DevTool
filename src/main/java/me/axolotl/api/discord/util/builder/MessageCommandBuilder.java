@@ -19,7 +19,7 @@ public abstract class MessageCommandBuilder {
     private final Map<DiscordLocale, String> nameLocalizations = new HashMap<>();
 
     /**
-     * 使用指定的名稱和描述構造一個新的SlashCommandBuilder。
+     * 使用指定的名稱和描述構造一個新的MessageCommandBuilder。
      *
      * @param name        訊息指令的名稱
      */
@@ -28,7 +28,7 @@ public abstract class MessageCommandBuilder {
     }
 
     /**
-     * 使用指定的名稱和描述構造一個新的SlashCommandBuilder。
+     * 使用指定的名稱和描述構造一個新的MessageCommandBuilder。
      *
      * @param name        訊息指令的名稱
      * @param nameLocalizations 訊息指令的名稱本地化
