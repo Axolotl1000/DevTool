@@ -1,12 +1,11 @@
-package me.axolotl.api.minecraft.bungee;
+package me.axolotl.api.Minecraft.Bungee;
 
 import me.axolotl.api.exception.ChecksNotPassException;
-import me.axolotl.api.minecraft.DependPlugin;
-import me.axolotl.api.minecraft.bungee.util.CommandRunnable;
+import me.axolotl.api.Minecraft.DependPlugin;
+import me.axolotl.api.Minecraft.Bungee.util.CommandRunnable;
 import me.axolotl.api.tool.Checks;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
-import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.logging.Logger;
 /**
  * BungeePluginBuilder類別是一個抽象類別，擴展了{@link Plugin}，並提供了構建BungeeCord插件的方法。
  * <br />
- * 使用{@link me.axolotl.api.minecraft.bukkit.JavaPluginBuilder}創建Bukkit/Spigot插件
+ * 使用{@link me.axolotl.api.Minecraft.Bukkit.JavaPluginBuilder}創建Bukkit/Spigot插件
  *
  * @since 2024-02-08
  */
@@ -45,13 +44,13 @@ public abstract class BungeePluginBuilder extends Plugin {
 
         for (DependPlugin dp : getDependencies()){
             try {
-                Checks.IsNull(getProxy().getPluginManager().getPlugin(dp.getPluginID()), dp.getPluginID());
+                Checks.IsNull(getProxy().getPluginManager().getPlugin(dp.pluginID()), dp.pluginID());
             } catch (ChecksNotPassException ignored) {
-                if (dp.isForce()) {
-                    logger.severe( dp.getPluginID() + " is a required plug-in, but it is not installed");
+                if (dp.force()) {
+                    logger.severe( dp.pluginID() + " is a required plug-in, but it is not installed");
                     anyForceNInstall = true;
                 } else {
-                    logger.warning(dp.getPluginID() + " is not installed, but is not necessary");
+                    logger.warning(dp.pluginID() + " is not installed, but is not necessary");
                 }
             }
         }
