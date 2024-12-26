@@ -1,8 +1,8 @@
-package me.axolotl.api.Minecraft.Bukkit;
+package me.axolotl.api.minecraft.bukkit;
 
 import me.axolotl.api.exception.ChecksNotPassException;
-import me.axolotl.api.Minecraft.DependPlugin;
-import me.axolotl.api.Minecraft.Bukkit.util.CommandRunnable;
+import me.axolotl.api.minecraft.DependPlugin;
+import me.axolotl.api.minecraft.bukkit.util.CommandRunnable;
 import me.axolotl.api.tool.Checks;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
@@ -16,10 +16,11 @@ import java.util.logging.Logger;
 /**
  * JavaPluginBuilder類別是一個抽象類別，擴展自{@link JavaPlugin}，並提供了構建Bukkit/Spigot插件的方法。
  * <br />
- * 使用{@link me.axolotl.api.Minecraft.Bungee.BungeePluginBuilder}創建BungeeCord插件
+ * 使用{@link me.axolotl.api.minecraft.bungee.BungeePluginBuilder}創建BungeeCord插件
  *
  * @since 2024-02-08
  */
+@SuppressWarnings("unused")
 public abstract class JavaPluginBuilder extends JavaPlugin {
 
     private final Logger logger = getLogger();

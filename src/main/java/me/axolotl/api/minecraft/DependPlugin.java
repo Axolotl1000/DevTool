@@ -1,4 +1,4 @@
-package me.axolotl.api.Minecraft;
+package me.axolotl.api.minecraft;
 
 /**
  * DependPlugin類別代表一個依賴的插件。

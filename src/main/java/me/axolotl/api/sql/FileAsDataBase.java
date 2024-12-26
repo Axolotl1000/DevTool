@@ -19,11 +19,11 @@ import static me.axolotl.api.sql.enumerate.SQLStatus.PROCESSING;
  *
  * @since 2024-02-22
  */
+@SuppressWarnings("unused")
 public final class FileAsDataBase implements BaseDB {
 
     private final String pathS;
     private final File pathF;
-    private final File parent;
     private SQLStatus status = SQLStatus.DISCONNECTED;
     private Connection connection;
     private Statement statement;
@@ -36,10 +36,12 @@ public final class FileAsDataBase implements BaseDB {
     public FileAsDataBase(String path) {
         this.pathS = path;
         this.pathF = new File(path);
-        this.parent = pathF.getParentFile();
+        File parent = pathF.getParentFile();
 
-        if (!this.parent.exists()) {
-            this.parent.mkdir();
+        if (!parent.exists()) {
+            if (!parent.mkdir()) {
+                throw new RuntimeException("Cannot create parent directory.");
+            }
         }
     }
 
@@ -149,7 +151,7 @@ public final class FileAsDataBase implements BaseDB {
         final String filterCmd = "WHERE %s";
         final String finalCmd = String.format(cmd, tableId) + (filter.isBlank() ? "" : String.format(filterCmd, filter)) + ";";
 
-        try (ResultSet rs = statement.executeQuery(finalCmd);) {
+        try (ResultSet rs = statement.executeQuery(finalCmd)) {
             setStatus(1);
             return rs;
         } catch (SQLException e) {
