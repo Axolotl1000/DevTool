@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * JavaPluginBuilder類別是一個抽象類別，擴展自{@link JavaPlugin}，並提供了構建Bukkit/Spigot插件的方法。
+ * JavaPluginBuilder類別是一個抽象類別，擴展自{@link org.bukkit.plugin.java.JavaPlugin}，並提供了構建Bukkit/Spigot插件的方法。
  * <br />
  * 使用{@link me.axolotl.api.minecraft.bungee.BungeePluginBuilder}創建BungeeCord插件
  *
