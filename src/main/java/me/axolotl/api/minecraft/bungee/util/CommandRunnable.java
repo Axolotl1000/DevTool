@@ -1,4 +1,4 @@
-package me.axolotl.api.Minecraft.Bungee.util;
+package me.axolotl.api.minecraft.bungee.util;
 
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Command;
@@ -10,10 +10,11 @@ import java.util.List;
 /**
  * CommandRunnable類別提供了一個模板，用於創建具有Tab補全的指令。
  * <br>
- * 使用{@link me.axolotl.api.Minecraft.Bukkit.util.CommandRunnable}創建Bukkit/Spigot的指令
+ * 使用{@link me.axolotl.api.minecraft.bukkit.util.CommandRunnable}創建Bukkit/Spigot的指令
  *
  * @since 2024-02-08
  */
+@SuppressWarnings("unused")
 public abstract class CommandRunnable extends Command implements TabExecutor {
 
     /**

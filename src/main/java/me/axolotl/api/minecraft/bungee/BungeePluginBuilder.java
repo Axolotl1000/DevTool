@@ -1,8 +1,8 @@
-package me.axolotl.api.Minecraft.Bungee;
+package me.axolotl.api.minecraft.bungee;
 
 import me.axolotl.api.exception.ChecksNotPassException;
-import me.axolotl.api.Minecraft.DependPlugin;
-import me.axolotl.api.Minecraft.Bungee.util.CommandRunnable;
+import me.axolotl.api.minecraft.DependPlugin;
+import me.axolotl.api.minecraft.bungee.util.CommandRunnable;
 import me.axolotl.api.tool.Checks;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 /**
  * BungeePluginBuilder類別是一個抽象類別，擴展了{@link Plugin}，並提供了構建BungeeCord插件的方法。
  * <br />
- * 使用{@link me.axolotl.api.Minecraft.Bukkit.JavaPluginBuilder}創建Bukkit/Spigot插件
+ * 使用{@link me.axolotl.api.minecraft.bukkit.JavaPluginBuilder}創建Bukkit/Spigot插件
  *
  * @since 2024-02-08
  */

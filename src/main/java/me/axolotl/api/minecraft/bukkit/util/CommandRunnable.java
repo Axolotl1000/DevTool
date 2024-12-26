@@ -1,4 +1,4 @@
-package me.axolotl.api.Minecraft.Bukkit.util;
+package me.axolotl.api.minecraft.bukkit.util;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,7 +13,7 @@ import java.util.List;
  * CommandRunnable類提供了一個模板，用於創建Bukkit/Spigot指令及其Tab自動補全。
  *
  * <br>
- * 使用{@link me.axolotl.api.Minecraft.Bungee.util.CommandRunnable}創建BungeeCord的指令
+ * 使用{@link me.axolotl.api.minecraft.bungee.util.CommandRunnable}創建BungeeCord的指令
  *
  * @since 2024-02-08
  */

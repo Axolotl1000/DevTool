@@ -7,7 +7,6 @@ import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -15,6 +14,8 @@ import java.util.List;
  *
  * @since 2024-02-22
  */
+
+@SuppressWarnings("unused")
 public abstract class SelectMenuBuilder {
 
     private final String id;
